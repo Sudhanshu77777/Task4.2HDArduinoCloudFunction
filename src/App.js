@@ -30,14 +30,17 @@ const TrafficLightControl = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Traffic Light Control</h1>
-      <div className="button-container">
-        <button onClick={() => toggleLED('red')}>Red</button>
-        <button onClick={() => toggleLED('green')}>Green</button>
-        <button onClick={() => toggleLED('blue')}>Blue</button>
+    <div className="page-border">
+      <h1 className="big-heading">Traffic Control System</h1>
+      <div className="container">
+        <div className="button-container">
+          <button onClick={() => toggleLED('red')}>Red</button>
+          <button onClick={() => toggleLED('green')}>Green</button>
+          <button onClick={() => toggleLED('blue')}>Blue</button>
+          <button onClick={() => toggleLED('off')} className="exit-button">Exit</button>
+        </div>
+        <div className="status">{status}</div>
       </div>
-      <div className="status">{status}</div>
     </div>
   );
 };
