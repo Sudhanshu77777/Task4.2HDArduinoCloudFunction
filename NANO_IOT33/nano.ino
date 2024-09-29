@@ -37,7 +37,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Initialize Firebase
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH,WIFI_SSID,WIFI_PASSWORD);
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH, WIFI_SSID, WIFI_PASSWORD);
   Firebase.reconnectWiFi(true);
   Serial.println("Connected to Firebase");
 }
@@ -68,5 +68,11 @@ void toggleLED(String color) {
     digitalWrite(greenPin, HIGH);
   } else if (color == "blue") {
     digitalWrite(bluePin, HIGH);
+  } else if (color == "off") {
+    // Turn off all LEDs if "off" command is received
+    digitalWrite(redPin, LOW);
+    digitalWrite(greenPin, LOW);
+    digitalWrite(bluePin, LOW);
+    Serial.println("All LEDs turned off");
   }
 }
